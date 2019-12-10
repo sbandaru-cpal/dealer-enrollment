@@ -1,0 +1,14 @@
+<div>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" value="Sbandaru">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Password"></textarea>
+    </mat-form-field>
+    <mat-label *ngIf="loginError" color="primary">Login With Faceid failed, please login with your credentials and update your profile with latest picture</mat-label>
+</form>
+</div>
+<div><button id="login" (click)="loginWithFaceId()" mat-raised-button color="primary">Login With FaceId</button></div>
+

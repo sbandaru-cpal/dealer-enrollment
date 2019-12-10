@@ -1,0 +1,23 @@
+<div>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" value="Sbandaru">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Password"></textarea>
+        </mat-form-field>
+    </form>
+    <div><video #video id="video" width="640" height="480" autoplay></video></div>
+    
+    <div class="example-button-row">
+        <button id="start" (click)="startCamera()" mat-raised-button color="primary">Start Camera</button>
+        <button id="snap" (click)="capture()" mat-raised-button color="primary">Snap Photo</button>
+        <button id="stop" (click)="stopCamera()" mat-raised-button color="primary">Stop Camera</button>
+    </div>
+
+    <canvas #canvas id="canvas" width="640" height="480"></canvas>
+
+    <div><button id="register" (click)="register()">Register</button></div>
+
+</div>
