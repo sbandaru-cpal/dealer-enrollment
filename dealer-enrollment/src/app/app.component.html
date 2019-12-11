@@ -1,15 +1,13 @@
-<header>
-  <div class="container">
-    <a routerLink="/" class="logo">Routeone</a>
-    <nav>
-      <ul>
-        <li><a href="#" routerLink="/enroll">Enroll Dealer</a></li>
-        <li><a href="#" routerLink="/notifications">Notifications</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+<div class="container">
+<mat-toolbar color="primary" class="navbar">
+<div> Routeone </div>
+<div>
+<button mat-button>About</button>
+<button mat-button routerLink="/enroll">Enroll Dealer</button>
+<button mat-button>Notifications</button>
+</div>
+</mat-toolbar>
+</div>
 <div class="container">
   <router-outlet></router-outlet>
 </div>

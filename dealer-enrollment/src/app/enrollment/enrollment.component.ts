@@ -11,5 +11,6 @@ export class EnrollmentComponent implements OnInit {
 
   ngOnInit() {
   }
+  value = 'Clear me';
 
 }

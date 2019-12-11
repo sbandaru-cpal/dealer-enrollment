@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from './material/material.module';
+
 
 
 @NgModule({
@@ -17,7 +21,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
