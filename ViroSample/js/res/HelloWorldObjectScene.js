@@ -71,9 +71,39 @@ export class BusinessCard extends Component {
                 <ViroFlexView
                   style={styles.cardWrapper}
                 >
-                  
+                  <ViroImage
+                    height={0.015}
+                    width={0.015}
+                    style={styles.image}
+                    source={require('./res/avatar.png')}
+                  />
+                  <ViroText
+                    textClipMode="None"
+                    text="Vladimir Novick"
+                    scale={[.015, .015, .015]}
+                    style={styles.textStyle}
+                  />
                 </ViroFlexView>
-               
+                <ViroFlexView
+                  onTouch={() => alert("twitter")}
+                  style={styles.subText}
+                >
+                  <ViroText
+                    width={0.01}
+                    height={0.01}
+                    textAlign="left"
+                    textClipMode="None"
+                    text="@VladimirNovick"
+                    scale={[.01, .01, .01]}
+                    style={styles.textStyle}
+                  />
+                  <ViroAnimatedImage
+                    height={0.01}
+                    width={0.01}
+                    loop={true}
+                    source={require('./res/tweet.gif')}
+                  />
+                </ViroFlexView>
               </ViroFlexView>
             </ViroNode>
             <ViroNode opacity={0} position={[0, 0, 0]}
@@ -82,7 +112,7 @@ export class BusinessCard extends Component {
                 run: this.state.runAnimation
               }}
             >
-              <ViroText text="Race Bike"
+              <ViroText text="www.viromedia.com"
                 rotation={[-90, 0, 0]}
                 scale={[.01, .01, .01]}
                 style={styles.textStyle}
@@ -90,7 +120,6 @@ export class BusinessCard extends Component {
             </ViroNode>
           </ViroNode>
         </ViroARImageMarker>
-      
       </ViroNode>
     )
   }
@@ -141,12 +170,7 @@ var styles = StyleSheet.create({
 
 ViroARTrackingTargets.createTargets({
   "businessCard" : {
-    source : require('./res/gopi_bike.jpg'),
-    orientation : "Up",
-    physicalWidth : 0.05 // real world width in meters
-  },
-  "wheels" : {
-    source : require('./res/wheels.jpg'),
+    source : require('./res/honda_accord.jpg'),
     orientation : "Up",
     physicalWidth : 0.05 // real world width in meters
   }
