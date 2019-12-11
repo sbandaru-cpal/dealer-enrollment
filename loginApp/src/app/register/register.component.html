@@ -1,23 +1,54 @@
-<div>
-    <form class="example-form">
+<mat-grid-list cols="3" rowHeight="100px">
+  <mat-grid-tile
+      [colspan]=1
+      [rowspan]=4>
+      <form class="example-form">
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" value="Sbandaru">
-        </mat-form-field>
+            <input #userId matInput placeholder="User id" value="Sbandaru" (change)="setUserId(userId.value)" >
+        </mat-form-field>   
 
         <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Password"></textarea>
+            <textarea #password matInput placeholder="Password" [type]='password' (change)="setPassword(password.value)"></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Confirm Password"></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <textarea #firstName matInput placeholder="First Name"  (change)="setFirstName(firstName.value)"></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <textarea #lastName matInput placeholder="Last Name"  (change)="setLastName(lastName.value)"></textarea>
         </mat-form-field>
     </form>
-    <div><video #video id="video" width="640" height="480" autoplay></video></div>
-    
-    <div class="example-button-row">
+  </mat-grid-tile>
+  <mat-grid-tile
+      [colspan]=1
+      [rowspan]=4>
+    <canvas #canvas id="canvas" width="640" height="480"></canvas>
+
+</mat-grid-tile>
+  <mat-grid-tile
+      [colspan]=1
+      [rowspan]=4>
+            <video #video id="video" width="640" height="480" autoplay></video>
+
+     
+            
+  </mat-grid-tile>
+<mat-grid-tile
+      [colspan]=2
+      [rowspan]=1>
+          <mat-label *ngIf="registrationFailed" color="primary">Registration Failed</mat-label>
+    <div><button id="register" (click)="register()" mat-raised-button color="primary">Register</button></div>
+  </mat-grid-tile>
+<mat-grid-tile
+      [colspan]=1
+      [rowspan]=1>
+       <div class="example-button-row">
         <button id="start" (click)="startCamera()" mat-raised-button color="primary">Start Camera</button>
         <button id="snap" (click)="capture()" mat-raised-button color="primary">Snap Photo</button>
         <button id="stop" (click)="stopCamera()" mat-raised-button color="primary">Stop Camera</button>
     </div>
-
-    <canvas #canvas id="canvas" width="640" height="480"></canvas>
-
-    <div><button id="register" (click)="register()">Register</button></div>
-
-</div>
+ </mat-grid-tile>
+  
+</mat-grid-list>
