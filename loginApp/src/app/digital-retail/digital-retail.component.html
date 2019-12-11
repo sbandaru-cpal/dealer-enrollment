@@ -1,0 +1,13 @@
+<div  style="text-align:center">
+      
+        <button (click)="initiateRecording()" *ngIf="!recording" mat-raised-button color="primary"> Start Recording </button>
+          <button (click)="stopRecording()"  *ngIf="recording" mat-raised-button color="primary"> Stop Recording </button>
+          <div class="clearfix"></div>
+          <audio controls="" *ngIf="url">
+              <source [src]="sanitize(url)" type="audio/wav">
+          </audio>
+      </div>
+
+      <div>
+            <button (click)="useRecording()" mat-raised-button color="primary"> Use Recording </button>
+      </div>

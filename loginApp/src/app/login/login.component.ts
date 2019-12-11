@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DesktopCameraService} from '../desktop-camera.service';
 import {FaceApiService} from '../face-api.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +29,12 @@ export class LoginComponent implements OnInit {
             verifyResponse => {
               const isLoginSuccessful = JSON.parse(JSON.stringify(verifyResponse)).isIdentical;
                 if(isLoginSuccessful){
-                  this.router.navigate(['/profile'])
+                  const navigationExtras: NavigationExtras = {
+                    state: {
+                      data: data
+                    }
+                  };
+                  this.router.navigate(['/profile'], navigationExtras);
                 }else{
                 this.loginError = true;
                 }
