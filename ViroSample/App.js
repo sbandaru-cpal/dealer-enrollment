@@ -33,11 +33,13 @@ var sharedProps = {
 var InitialARScene = require('./js/HelloWorldSceneAR');
 var InitialObjectScene = require('./js/HelloWorldObjectScene');
 var Initial360Scene = require('./js/360Scene');
+var InitialParkingScene = require('./js/ParkingLotAR');
 
 var UNSET = "UNSET";
 var NAVIGATOR_OBJECT_TYPE = "Object";
 var AR_NAVIGATOR_TYPE = "AR";
 var NAVIGATOR_360_TYPE = "360";
+var NAVIGATOR_PARKING_TYPE = "Parking";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
@@ -69,6 +71,8 @@ export default class ViroSample extends Component {
       return this._getARNavigator();
     } else if (this.state.navigatorType == NAVIGATOR_360_TYPE) {
       return this._get360Navigator();
+    } else if (this.state.navigatorType == NAVIGATOR_PARKING_TYPE) {
+      return this._getParkingNavigator();
     }
   }
 
@@ -101,6 +105,12 @@ export default class ViroSample extends Component {
 
             <Text style={localStyles.buttonText}>Object</Text>
           </TouchableHighlight>
+           <TouchableHighlight style={localStyles.buttons}
+            onPress={this._getExperienceButtonOnPress(NAVIGATOR_PARKING_TYPE)}
+            underlayColor={'#68a0ff'} >
+
+            <Text style={localStyles.buttonText}>Parking</Text>
+          </TouchableHighlight>
         </View>
       </View>
     );
@@ -119,6 +129,14 @@ export default class ViroSample extends Component {
     return (
       <ViroARSceneNavigator {...this.state.sharedProps}
         initialScene={{scene: InitialObjectScene}} onExitViro={this._exitViro}/>
+    );
+  }
+
+  // Returns the ViroSceneNavigator which will start the VR experience
+  _getParkingNavigator() {
+    return (
+      <ViroARSceneNavigator {...this.state.sharedProps}
+        initialScene={{scene: InitialParkingScene}} onExitViro={this._exitViro}/>
     );
   }
 

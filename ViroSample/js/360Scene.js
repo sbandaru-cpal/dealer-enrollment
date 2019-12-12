@@ -13,7 +13,7 @@ import {
   ViroText
 } from 'react-viro';
 
-var backgroundImage = require('./res/parkinglot.jpg');
+var backgroundImage = require('./res/test.jpg');
 var weworkImage = require('./res/wework_title.png');
 
 export default class Scene360AR extends Component {
