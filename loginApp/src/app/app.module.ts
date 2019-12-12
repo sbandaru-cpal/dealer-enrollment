@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { DigitalRetailComponent } from './digital-retail/digital-retail.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatToolbarModule,
     MatButtonModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

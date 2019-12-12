@@ -9,6 +9,10 @@ export class RouteoneService {
 
   constructor(private httpClient: HttpClient) { }
 
+getUserByFaceId(faceId: string) {
+    return this.httpClient.get('http://localhost:8080/user/by-faceId/'+faceId);
+  }
+
   getUser(userId: string) {
     return this.httpClient.get('http://localhost:8080/user/by-userId/'+userId);
   }

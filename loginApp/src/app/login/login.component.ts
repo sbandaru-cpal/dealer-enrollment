@@ -30,10 +30,18 @@ export class LoginComponent implements OnInit {
         this.faceApi.scanImage(data).subscribe(
           response => {
           const jsonData = JSON.parse(JSON.stringify(response));
-          this.routeOneApi.getUser(this.userId).subscribe(
+          this.routeOneApi.getUserByFaceId(jsonData[0].faceId).subscribe(
               userData => {
                 const userDetails = JSON.parse(JSON.stringify(userData));
-                this.verifyUser(jsonData[0].faceId, userDetails, data);
+               const navigationExtras: NavigationExtras = {
+                    state: {
+                      data: data,
+                      userId: userDetails.userId,
+                      firstName: userDetails.firstName,
+                      lastName: userDetails.lastName
+                    }
+                  };
+                  this.router.navigate(['/profile'], navigationExtras);
               },
               error => {
                 this.userDataError = true;

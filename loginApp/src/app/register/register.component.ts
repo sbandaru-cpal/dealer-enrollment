@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
        registeredUser => {
          const navigationExtras: NavigationExtras = {
                     state: {
-                      data: data,
+                      data: this.imageString,
                       userId: this.userId,
                       firstName: this.firstName,
                       lastName: this.lastName
